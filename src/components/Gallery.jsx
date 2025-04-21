@@ -1,3 +1,5 @@
+// From Challenge 19
+
 import React, { useEffect, useState } from 'react';
 import TourCard from './TourCard.jsx';
 
@@ -17,7 +19,7 @@ const Gallery = ({ tours, setTours, onRemove }) => {
       const res = await fetch("https://api.allorigins.win/raw?url=https://course-api.com/react-tours-project");
       if (!res.ok) {
         throw new Error("Failed to fetch tours");
-      }
+      } // Show Fetching error
       const data = await res.json();
       setTours(data);
       setLoading(false);
@@ -25,8 +27,9 @@ const Gallery = ({ tours, setTours, onRemove }) => {
       console.error("Error fetching tours:", err);
       setError(true);
       setLoading(false);
-    }
+    } // Display fetching tours error
   };
+  // Set up to catch errors 
   
 
 
