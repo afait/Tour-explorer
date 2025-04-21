@@ -1,5 +1,8 @@
 // From Challenge 19
 
+// Task 1
+
+
 import React, { useEffect, useState } from 'react';
 import TourCard from './TourCard.jsx';
 
@@ -10,8 +13,11 @@ const Gallery = ({ tours, setTours, onRemove }) => {
   const [error, setError] = useState(false);
 
 
+
+
   // Use the proxied endpoint
   // ExampleComponent.js or App.js
+
 
   // Creating the tour list component
   const fetchTours = async () => {
@@ -29,8 +35,12 @@ const Gallery = ({ tours, setTours, onRemove }) => {
       setLoading(false);
     } // Display fetching tours error
   };
-  // Set up to catch errors 
-  
+  // Set up to catch errors
+ 
+
+
+
+
 
 
 
@@ -38,6 +48,10 @@ const Gallery = ({ tours, setTours, onRemove }) => {
   useEffect(() => {
     fetchTours();
   }, []);
+
+
+
+
 
 
 
@@ -55,6 +69,10 @@ const Gallery = ({ tours, setTours, onRemove }) => {
 
 
 
+
+
+
+
   return (
     <section className="gallery">
       {tours.map((tour) => (
@@ -65,9 +83,4 @@ const Gallery = ({ tours, setTours, onRemove }) => {
 };
 
 
-
 export default Gallery;
-
-
-
-
