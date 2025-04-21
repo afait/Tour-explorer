@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import TourCard from './TourCard.jsx';
 
+
 const Gallery = ({ tours, setTours, onRemove }) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const [selectedDestination, setSelectedDestination] = useState("All"); // State for dropdown selection
+
 
   // Function to fetch tours from the API
   const fetchTours = async () => {
@@ -25,10 +27,13 @@ const Gallery = ({ tours, setTours, onRemove }) => {
     }
   };
 
+
   // useEffect to fetch tours when the component mounts
   useEffect(() => {
     fetchTours();
   }, []);
+
+
 
 
   // Task 2
@@ -38,11 +43,13 @@ const Gallery = ({ tours, setTours, onRemove }) => {
     return ["All", ...Array.from(destinations)];
   };
 
+
   // Filter tours based on the selected destination
   const filteredTours =
     selectedDestination === "All"
       ? tours
       : tours.filter((tour) => tour.name === selectedDestination);
+
 
   // Conditional rendering for loading, error, and empty states
   if (loading) return <h2>Loading...</h2>;
@@ -54,6 +61,7 @@ const Gallery = ({ tours, setTours, onRemove }) => {
         <button onClick={fetchTours}>Refresh</button>
       </div>
     );
+
 
   return (
     <section className="gallery">
@@ -73,6 +81,7 @@ const Gallery = ({ tours, setTours, onRemove }) => {
         </select>
       </div>
 
+
       {/* Render Tours */}
       {filteredTours.map((tour) => (
         <TourCard key={tour.id} {...tour} onRemove={onRemove} />
@@ -81,5 +90,7 @@ const Gallery = ({ tours, setTours, onRemove }) => {
   );
 };
 
+
 export default Gallery;
+
 

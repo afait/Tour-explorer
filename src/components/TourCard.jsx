@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 
+
+// Task 3 Not Interested Card
 const TourCard = ({ id, image, info, price, name, onRemove }) => {
   const [readMore, setReadMore] = useState(false);
 
